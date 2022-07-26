@@ -1,0 +1,52 @@
+{
+  "facts": [
+    {
+      "person_a": {
+        "name": "Alex",
+        "surname": "Johns",
+        "age": 22
+      },
+      "person_b": {
+        "name": "Peter",
+        "surname": "Mirkwood",
+        "age": 21
+      },
+      "communication": {
+        "type": "sends_message_to",
+        "description": "Alex greets Peter"
+      }
+    },
+    {
+      "person_a": {
+        "name": "Alex",
+        "surname": "Johns",
+        "age": 22
+      },
+      "person_b": {
+        "name": "Brian",
+        "surname": "Richey",
+        "age": 26
+      },
+      "communication": {
+        "type": "sends_message_to",
+        "description": "Alex invited Brian to watch the football"
+      }
+    },
+    {
+      "person_a": {
+        "name": "Brian",
+        "surname": "Richey",
+        "age": 26
+      },
+      "person_b": {
+        "name": "Peter",
+        "surname": "Mirkwood",
+        "age": 21
+      },
+      "communication": {
+        "type": "sends_message_to",
+        "description": "Brian shares useful information with Peter"
+      }
+    }
+  ]
+}
