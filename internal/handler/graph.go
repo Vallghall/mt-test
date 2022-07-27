@@ -13,7 +13,7 @@ func (h *Handler) addFact(c *gin.Context) {
 	err := c.BindJSON(&f)
 	catch(c, err, http.StatusInternalServerError)
 
-	if ok, err := regexp.MatchString(``, regexp.QuoteMeta(f.Communication.Type)); !ok || err != nil {
+	if ok, err := regexp.MatchString(`^([A-Z]+-?[A-Z]+)+$`, regexp.QuoteMeta(f.Communication.Type)); !ok || err != nil {
 		catch(c, ErrInvalidCommType, http.StatusBadRequest)
 	}
 
