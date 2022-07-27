@@ -24,6 +24,7 @@ func main() {
 
 	stor := storage.NewStorage(session)
 	stor.LoadGraphData(os.Getenv("SRC_FILE"))
+	stor.GetGraph()
 	serv := service.NewService(stor)
 	h := handler.NewHandler(serv)
 	log.Fatalln(h.InitRoutes().Run())

@@ -2,6 +2,7 @@ package neo
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/Vallghall/mt/test/internal/model/fact"
 	"github.com/Vallghall/mt/test/internal/model/graph"
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
@@ -19,7 +20,7 @@ func NewSocialStorage(s neo4j.Session) *SocialStorage {
 
 func (s *SocialStorage) StoreRelation(f *fact.Fact) error {
 	query :=
-		`CREATE 
+		`MERGE 
 			(a:PERSON {name: $name1, surname: $surname1, age: $age1}) 
 			-[rel:SENDS_MESSAGE_TO {info: $info}]-> 
 			(b:PERSON {name: $name2, surname: $surname2, born: $age2})`
@@ -54,6 +55,16 @@ func (s *SocialStorage) LoadGraphData(src string) error {
 }
 
 func (s *SocialStorage) GetGraph() (graph.Graph, error) {
+	query := `match (n:PERSON) -[rel:SENDS_MESSAGE_TO]-> (m:PERSON) return n, rel, m`
+	result, err := s.s.Run(query, map[string]any{})
+	if err != nil {
+		return graph.Graph{}, err
+	}
 
+	_ = make([]fact.Fact, 0)
+	for result.Next() {
+		//var f fact.Fact
+		fmt.Println(result.Record().Values)
+	}
 	return graph.Graph{}, nil
 }
