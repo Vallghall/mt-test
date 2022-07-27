@@ -44,7 +44,7 @@
         "age": 21
       },
       "communication": {
-        "type": "sends_message_to",
+        "type": "SENDS_MESSAGE_TO",
         "description": "Brian shares useful information with Peter"
       }
     }

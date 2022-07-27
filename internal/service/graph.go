@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/Vallghall/mt/test/internal/model/fact"
+	"github.com/Vallghall/mt/test/internal/model/graph"
 	"github.com/Vallghall/mt/test/internal/storage"
 )
 
@@ -14,11 +15,9 @@ func NewSocialService(s *storage.Storage) *SocialService {
 }
 
 func (s *SocialService) AddRelation(f *fact.Fact) error {
-	//TODO implement me
-	panic("implement me")
+	return s.s.StoreRelation(f)
 }
 
-func (s *SocialService) GetGraph() {
-	//TODO implement me
-	panic("implement me")
+func (s *SocialService) GetGraph() (graph.Graph, error) {
+	return s.s.GetGraph()
 }

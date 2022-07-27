@@ -6,8 +6,9 @@ import (
 )
 
 var (
-	ErrSamePerson = errors.New("person A and person B are the same person")
-	ErrBadRequest = errors.New("request body has invalid parameters")
+	ErrSamePerson      = errors.New("person A and person B are the same person")
+	ErrBadRequest      = errors.New("request body has invalid parameters")
+	ErrInvalidCommType = errors.New("invalid communication type")
 )
 
 func catch(c *gin.Context, err error, status int) {

@@ -2,12 +2,13 @@ package service
 
 import (
 	"github.com/Vallghall/mt/test/internal/model/fact"
+	"github.com/Vallghall/mt/test/internal/model/graph"
 	"github.com/Vallghall/mt/test/internal/storage"
 )
 
 type GraphService interface {
 	AddRelation(f *fact.Fact) error
-	GetGraph()
+	GetGraph() (graph.Graph, error)
 }
 
 type Service struct {
